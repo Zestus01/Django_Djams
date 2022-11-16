@@ -10,7 +10,7 @@ class Song(models.Model):
     number_of_plays = models.BigIntegerField(blank=False)
     album = models.ForeignKey('Album', on_delete=models.CASCADE)
     genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
-    artists = models.ManyToManyField('Artist')
+    artist = models.ManyToManyField('Artist')
 
     def __str__(self):
         return f"{self.title} plays in the {self.album}, done by {self.artists}"
