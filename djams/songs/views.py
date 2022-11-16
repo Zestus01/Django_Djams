@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
+from django.http.response import Http404
+from rest_framework.views import APIView
+from rest_framework import status
 from .models import * 
 from .serializers import *
 # Create your views here.
@@ -23,6 +27,38 @@ def song_list(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
+
+class SongList(APIView):
+    """
+    List all songs.
+    """
+    def get(self, request, format=None):
+        song = Song.objects.all()
+        serializer = SongSerializer(song, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request, format=None):
+        serializer = SongSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class TagList(APIView):
+    """
+    List all tags
+    """
+    def get(self, request, format=None):
+        tags = Tag.objects.all()
+        serializer = TagSerializer(tags, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = TagSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @csrf_exempt
 def song_detail(request, pk):
