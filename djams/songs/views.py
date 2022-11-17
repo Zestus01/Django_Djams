@@ -77,11 +77,11 @@ class TagList(APIView):
     """
     def get(self, request, format=None):
         tags = Tag.objects.all()
-        serializer = TagSerializer(tags, many=True)
+        serializer = TagBaseSerializer(tags, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = TagSerializer(data=request.data)
+        serializer = TagBaseSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -99,12 +99,12 @@ class TagDetail(APIView):
 
     def get(self, request, pk, format=None):
         tag = self.get_object(pk)
-        serializer = TagSerializer(tag)
+        serializer = TagBaseSerializer(tag)
         return Response(serializer.data)
     
     def put(self, request, pk, format=None):
         tag = self.get_object(pk)
-        serializer = TagSerializer(tag, data=request.data)
+        serializer = TagBaseSerializer(tag, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -160,6 +160,22 @@ class ArtistDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+class AlbumList(APIView):
+    """
+    List all tags
+    """
+    def get(self, request, format=None):
+        album = Album.objects.all()
+        serializer = AlbumSerializer(album, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = AlbumSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class AlbumViewSet(viewsets.ModelViewSet):
@@ -172,6 +188,8 @@ class AlbumViewSet(viewsets.ModelViewSet):
 
     ##@action(detail=True, renderer_class=[renderers.StaticHTMLRenderer])
     def perform_create(self, serializer):
+        print('request')
+        print(request.user)
         serializer.save()
         
 
