@@ -15,17 +15,29 @@ class ArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
         fields = "__all__"
-
+        
 class AlbumSerializer(serializers.ModelSerializer):
     tag = TagSerializer()
     class Meta:
         model = Album
-        fields = ['id', 'name', 'tag']
+        fields = [
+                    'id', 
+                    'name', 
+                    'tag',
+                ]
 
 class SongIDSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
-        fields = ['id', 'title', 'explicit', 'number_of_plays', 'album', 'genre', 'artist']
+        fields = [
+                    'id', 
+                    'title', 
+                    'explicit', 
+                    'number_of_plays', 
+                    'album', 
+                    'genre', 
+                    'artist',
+                ]
 
 
 class SongSerializer(serializers.ModelSerializer):
@@ -34,7 +46,15 @@ class SongSerializer(serializers.ModelSerializer):
     artist = ArtistSerializer(many=True)
     class Meta:
         model = Song
-        fields = ['id', 'title', 'explicit', 'number_of_plays', 'album', 'genre', 'artist']
+        fields = [
+                    'id', 
+                    'title', 
+                    'explicit', 
+                    'number_of_plays', 
+                    'album', 
+                    'genre', 
+                    'artist',
+                ]
 
 class PlaylistSerializer(serializers.ModelSerializer):
     songs = SongSerializer(many=True)
@@ -43,4 +63,10 @@ class PlaylistSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Playlist
-        fields = ['id', 'name', 'genre', 'tag', 'songs']
+        fields = [
+                    'id', 
+                    'name', 
+                    'genre', 
+                    'tag', 
+                    'songs',
+                ]
