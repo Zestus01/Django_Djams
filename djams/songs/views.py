@@ -17,12 +17,12 @@ def song_list(request):
     """
     if request.method == 'GET':
         songs = Song.objects.all()
-        serializer = SongSerializer(songs, many=True)
+        serializer = SongIDSerializer(songs, many=True)
         return JsonResponse(serializer.data, safe=False)
     
     elif request.method == 'POST':
         data = JSONParser().parse(request)
-        serializer = SongSerializer(data = data)
+        serializer = SongIDSerializer(data = data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
@@ -82,7 +82,7 @@ class TagDetail(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-     
+
     def delete(self, request, pk, format=None):
         tag = self.get_object(pk)
         tag.delete()
@@ -126,7 +126,7 @@ class ArtistDetail(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-     
+    
     def delete(self, request, pk, format=None):
         artist = self.get_object(pk)
         artist.delete()
@@ -144,12 +144,12 @@ def song_detail(request, pk):
         return HttpResponse(status=404)
 
     if request.method == 'GET':
-        serializer = SongSerializer(song)
+        serializer = SongIDSerializer(song)
         return JsonResponse(serializer.data)
     
     elif request.method == 'PUT':
         data = JSONParser().parser(request)
-        serializer = SongSerializer(song, data=data)
+        serializer = SongIDSerializer(song, data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data)

@@ -22,6 +22,11 @@ class AlbumSerializer(serializers.ModelSerializer):
         model = Album
         fields = ['id', 'name', 'tag']
 
+class SongIDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Song
+        fields = ['id', 'title', 'explicit', 'number_of_plays', 'album', 'genre', 'artist']
+
 
 class SongSerializer(serializers.ModelSerializer):
     album = AlbumSerializer()

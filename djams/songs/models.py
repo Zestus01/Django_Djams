@@ -17,7 +17,7 @@ class Song(models.Model):
     title = models.CharField(max_length=80)
     duration = models.FloatField(default=210)
     explicit = models.BooleanField(default=False)
-    number_of_plays = models.BigIntegerField(blank=False)
+    number_of_plays = models.BigIntegerField(validators=[MinValueValidator(0)], blank=False)
     album = models.ForeignKey('Album', on_delete=models.CASCADE)
     genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
     artist = models.ManyToManyField('Artist')
