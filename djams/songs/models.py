@@ -47,9 +47,8 @@ class Genre(models.Model):
 
 class Album(models.Model):
     name = models.CharField(max_length=100, default="Coder's Paradise")
-    artist = models.ForeignKey('Artist', on_delete=models.PROTECT)
-    genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
+    tag = models.ForeignKey('Tag', on_delete=models.PROTECT, default=1)
 
     def __str__(self):
-        return f"{self.name} has {self.artist} on it, in the {self.genre} genre"
+        return f"{self.name} has {self.artist} on it, in the {self.tag} genre"
 

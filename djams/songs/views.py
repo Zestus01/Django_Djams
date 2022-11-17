@@ -75,7 +75,7 @@ class TagDetail(APIView):
         serializer = TagSerializer(tag)
         return Response(serializer.data)
     
-    def put(self, request, pk, format=none):
+    def put(self, request, pk, format=None):
         tag = self.get_object(pk)
         serializer = TagSerializer(tag, data=request.data)
         if serializer.is_valid():

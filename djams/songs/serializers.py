@@ -17,11 +17,10 @@ class ArtistSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class AlbumSerializer(serializers.ModelSerializer):
-    artist = ArtistSerializer()
-    genre = GenreSerializer()
+    tag = TagSerializer()
     class Meta:
         model = Album
-        fields = ['id', 'name', 'artist', 'genre']
+        fields = ['id', 'name', 'tag']
 
 
 class SongSerializer(serializers.ModelSerializer):
