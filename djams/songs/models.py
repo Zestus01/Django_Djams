@@ -1,7 +1,17 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
+
+### Vaidators Created Here
+def validate_positive(value):
+        if (value < 0):
+            raise ValidationError(
+                _('%(value)s is not a valid input'),
+                params={'value', value},
+            )
 
 class Song(models.Model):
     title = models.CharField(max_length=80)
@@ -16,10 +26,11 @@ class Song(models.Model):
         return f"{self.title} plays in the {self.album}, done by {self.artists}"
 
 class Artist(models.Model):
-    name = models.CharField(max_length=80)
-    bio = models.TextField(max_length=500)
+    name = models.CharField(max_length=80, blank=True)
+    bio = models.TextField(max_length=500, blank=True)
     monthly_listeners = models.BigIntegerField(default=4200)
-    grammies_won = models.SmallIntegerField(default=0, blank=True)
+    grammies_won = models.SmallIntegerField(validators=[MinValueValidator(0)], default=0, blank=True)
+
 
     def __str__(self):
         return f"{self.name}."
@@ -50,5 +61,5 @@ class Album(models.Model):
     tag = models.ForeignKey('Tag', on_delete=models.PROTECT, default=1)
 
     def __str__(self):
-        return f"{self.name} has {self.artist} on it, in the {self.tag} genre"
+        return f"{self.name}, in the {self.tag} genre"
 
