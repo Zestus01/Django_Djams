@@ -15,3 +15,5 @@ Indents help for readability.
 Load Data:
 python manage.py loaddata fixtures/model_name.json --app app.model_name
 python manage.py loaddata songs/fixtures/song.json -- app songs.song
+
+$ python manage.py loaddata myfixtures/*.json
