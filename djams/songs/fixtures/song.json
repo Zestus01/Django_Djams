@@ -1,0 +1,1 @@
+[{"model": "songs.song", "pk": 1, "fields": {"title": "Performing Music", "duration": 163.0, "explicit": true, "number_of_plays": 4, "album": 1, "genre": 1, "artist": [3, 4]}}, {"model": "songs.song", "pk": 2, "fields": {"title": "Testing The Waters", "duration": 210.0, "explicit": true, "number_of_plays": 42212, "album": 1, "genre": 1, "artist": [2, 5]}}]
