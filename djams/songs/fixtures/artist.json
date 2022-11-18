@@ -84,7 +84,7 @@
     "pk": 9,
     "fields": {
         "name": "Revengence",
-        "bio": "",
+        "bio": "Hello, test, test test",
         "monthly_listeners": 4200,
         "grammies_won": 0
     }
