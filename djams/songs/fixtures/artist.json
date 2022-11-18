@@ -1,1 +1,92 @@
-[{"model": "songs.tag", "pk": 1, "fields": {"name": "Silly"}}, {"model": "songs.tag", "pk": 3, "fields": {"name": "Groovy"}}, {"model": "songs.tag", "pk": 4, "fields": {"name": "Sailing"}}, {"model": "songs.tag", "pk": 5, "fields": {"name": "LIVE"}}, {"model": "songs.tag", "pk": 6, "fields": {"name": "Testus"}}]
+[
+{
+    "model": "songs.artist",
+    "pk": 1,
+    "fields": {
+        "name": "Sweep Dogs",
+        "bio": "CODE FOR THE CODE EMPEROR",
+        "monthly_listeners": 32321,
+        "grammies_won": 2
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 2,
+    "fields": {
+        "name": "RSPCT",
+        "bio": "GIVE IT TO ME, RESPECT FIND OUT WHAT IT MEEAANS TO ME",
+        "monthly_listeners": 132132,
+        "grammies_won": 3
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 3,
+    "fields": {
+        "name": "Billy Fountaine and the Diamond Dougs",
+        "bio": "A singer with supporting dogs barking",
+        "monthly_listeners": 4200,
+        "grammies_won": 0
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 4,
+    "fields": {
+        "name": "Bacon Ipsum",
+        "bio": "The one you can always count on being great. Not too cold and not too hot.",
+        "monthly_listeners": 3213,
+        "grammies_won": 0
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 5,
+    "fields": {
+        "name": "Data Blocked",
+        "bio": "Filling out data for my hearsts content, is so nice, I love it",
+        "monthly_listeners": 4200,
+        "grammies_won": 0
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 6,
+    "fields": {
+        "name": "Samsons and the Jingle Gang",
+        "bio": "A Jingler with a mullet you sings carols everyhwere",
+        "monthly_listeners": 4200,
+        "grammies_won": 0
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 7,
+    "fields": {
+        "name": "Mispeiiers",
+        "bio": "A type ridden bant, kust rrying to bake it",
+        "monthly_listeners": 100000,
+        "grammies_won": 0
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 8,
+    "fields": {
+        "name": "Testing All Params",
+        "bio": "LuALS LASL ASLS LAS DLSA DAS D",
+        "monthly_listeners": 4200,
+        "grammies_won": 2
+    }
+},
+{
+    "model": "songs.artist",
+    "pk": 9,
+    "fields": {
+        "name": "Revengence",
+        "bio": "",
+        "monthly_listeners": 4200,
+        "grammies_won": 0
+    }
+}
+]

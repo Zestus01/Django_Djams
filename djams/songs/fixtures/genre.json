@@ -1,1 +1,44 @@
-[{"model": "songs.tag", "pk": 1, "fields": {"name": "Silly"}}, {"model": "songs.tag", "pk": 3, "fields": {"name": "Groovy"}}, {"model": "songs.tag", "pk": 4, "fields": {"name": "Sailing"}}, {"model": "songs.tag", "pk": 5, "fields": {"name": "LIVE"}}, {"model": "songs.tag", "pk": 6, "fields": {"name": "Testus"}}]
+[
+{
+    "model": "songs.genre",
+    "pk": 1,
+    "fields": {
+        "name": "Chiptunes"
+    }
+},
+{
+    "model": "songs.genre",
+    "pk": 2,
+    "fields": {
+        "name": "Horror"
+    }
+},
+{
+    "model": "songs.genre",
+    "pk": 3,
+    "fields": {
+        "name": "Rock"
+    }
+},
+{
+    "model": "songs.genre",
+    "pk": 4,
+    "fields": {
+        "name": "Drum and Bass"
+    }
+},
+{
+    "model": "songs.genre",
+    "pk": 5,
+    "fields": {
+        "name": "Stepgrass"
+    }
+},
+{
+    "model": "songs.genre",
+    "pk": 6,
+    "fields": {
+        "name": "LARPING"
+    }
+}
+]
