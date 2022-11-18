@@ -19,7 +19,7 @@ class Song(models.Model):
     explicit = models.BooleanField(default=False)
     number_of_plays = models.BigIntegerField(validators=[MinValueValidator(0)], blank=False)
     album = models.ForeignKey('Album', on_delete=models.CASCADE)
-    genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
+    genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
     artist = models.ManyToManyField('Artist')
 
     def __str__(self):
@@ -37,8 +37,8 @@ class Artist(models.Model):
 
 class Playlist(models.Model):
     name = models.CharField(max_length=100, default="Living in the Source Code")
-    genre = models.ForeignKey('Genre', on_delete=models.PROTECT)
-    tag = models.ForeignKey('Tag', on_delete=models.PROTECT)
+    genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
+    tag = models.ForeignKey('Tag', on_delete=models.CASCADE)
     songs = models.ManyToManyField('Song')
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Genre(models.Model):
 
 class Album(models.Model):
     name = models.CharField(max_length=100, default="Coder's Paradise")
-    tag = models.ForeignKey('Tag', on_delete=models.PROTECT, default=1)
+    tag = models.ForeignKey('Tag', on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return f"{self.name}, in the {self.tag} genre"

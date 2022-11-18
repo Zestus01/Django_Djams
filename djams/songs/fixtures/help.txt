@@ -9,4 +9,9 @@ and reloaded into the database. Note this means that if you change
 one of the rows created by a fixture and then run loaddata again, 
 you’ll wipe out any changes you’ve made.
 
-python manage.py dumpdata songs.model_name > songs/fixtures/model_name.json
+python manage.py dumpdata songs.model_name --indent 4 > songs/fixtures/model_name.json
+Indents help for readability. 
+
+Load Data:
+python manage.py loaddata fixtures/model_name.json --app app.model_name
+python manage.py loaddata songs/fixtures/song.json -- app songs.song
