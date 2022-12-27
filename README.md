@@ -1,13 +1,3 @@
-# Django Template
-## Setup
-After creating your project, some additional configuration is required to allow the project to run in Gitpod.
+# Django Djams
 
-1. Install the [`django-cors-headers`](https://pypi.org/project/django-cors-headers/) package and follow the Setup instructions in the README.
-
-1. Add the following to the project's `settings.py`:
-    ```
-    CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
-    ```
+### Application coded in python using Django rest framework to construct an API that allows queries of songs. Various URL slugs will query the song database and return songs on an album, all songs from a particular artist in a playlist, and entire discography of an artist. Utilized the rest framework to have full CRUD functionality. 
